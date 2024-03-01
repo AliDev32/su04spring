@@ -1,4 +1,4 @@
-package ali.su.cft2j02;
+package ali.su.cft2j02.datareader;
 
 /**
  * Represents a supplier of results.

@@ -1,4 +1,4 @@
-package ali.su.cft2j02;
+package ali.su.cft2j02.datareader;
 
 /**
  * Represents a function that accepts one argument and produces a result.

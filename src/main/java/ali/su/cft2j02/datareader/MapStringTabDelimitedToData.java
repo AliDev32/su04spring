@@ -1,5 +1,6 @@
-package ali.su.cft2j02;
+package ali.su.cft2j02.datareader;
 
+import ali.su.cft2j02.Data;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 

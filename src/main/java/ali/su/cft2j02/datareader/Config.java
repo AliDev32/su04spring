@@ -1,4 +1,4 @@
-package ali.su.cft2j02;
+package ali.su.cft2j02.datareader;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
