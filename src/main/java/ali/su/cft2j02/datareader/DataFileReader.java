@@ -22,7 +22,7 @@ public class DataFileReader implements DataReader<List<Data>> {
     @Override
     public List<Data> get() {
         Scanner scanner = null;
-        List<Data> res = new ArrayList<>();
+        var res = new ArrayList<Data>();
         try {
             var file = new File(dataLocation);
             for (var f : file.listFiles()) {
