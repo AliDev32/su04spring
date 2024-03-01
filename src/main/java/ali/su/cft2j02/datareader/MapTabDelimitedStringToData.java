@@ -8,10 +8,10 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 @Component
-public class MapStringTabDelimitedToData implements MapperSourceToData<String, Data> {
+public class MapTabDelimitedStringToData implements MapperSourceToData<String, Data> {
     private SimpleDateFormat sdf;
 
-    public MapStringTabDelimitedToData(@Qualifier("dateFormat") String dateFormat) {
+    public MapTabDelimitedStringToData(@Qualifier("dateFormat") String dateFormat) {
         this.sdf = new SimpleDateFormat(dateFormat);
     }
 
