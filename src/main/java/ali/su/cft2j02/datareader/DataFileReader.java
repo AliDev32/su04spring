@@ -31,11 +31,10 @@ public class DataFileReader implements DataReader<List<Data>> {
                     res.add(mapper.apply(scanner.nextLine()));
                 }
             }
-            res.forEach(System.out::println);
         } catch (Exception e) {
             throw new IllegalArgumentException(e);
         }
-        return null;
+        return res;
     }
 
 /*
