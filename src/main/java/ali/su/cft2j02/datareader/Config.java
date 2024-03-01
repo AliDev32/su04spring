@@ -9,7 +9,7 @@ public class Config {
     @Bean
     @Qualifier("dataLocation")
     String dataLocation() {
-        return "C:\\tor\\workspace\\java\\works_bc_cursCFT2J_02\\su04spring\\src\\main\\resources";
+        return "C:\\tor\\workspace\\java\\works_bc_cursCFT2J_02\\su04spring\\src\\main\\datafiles";
     }
 
     @Bean
