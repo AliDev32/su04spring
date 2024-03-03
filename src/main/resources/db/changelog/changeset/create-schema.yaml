@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - changeSet:
+      id: create_schema-BEGIN
+      author: torkov
+  - include:
+      file: create_schema.sql
+      relativeToChangelogFile: true

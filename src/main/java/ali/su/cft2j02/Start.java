@@ -1,15 +1,10 @@
 package ali.su.cft2j02;
 
 import ali.su.cft2j02.datareader.DataFileReader;
-import ali.su.cft2j02.datareader.DataReader;
-import ali.su.cft2j02.datasaver.TestTableRepo;
+import ali.su.cft2j02.datasaver.Users;
+import ali.su.cft2j02.datasaver.UsersRepo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-
-import javax.sql.DataSource;
-import java.sql.SQLException;
 
 @SpringBootApplication(scanBasePackages = "ali.su.cft2j02")
 public class Start {
@@ -17,7 +12,7 @@ public class Start {
         var ctx = SpringApplication.run(Start.class);
         ctx.getBean(DataFileReader.class).get().forEach(System.out::println);
 
-        TestTableRepo ttRepo = ctx.getBean(TestTableRepo.class);
-        ttRepo.findAll().forEach(System.out::println);
+        UsersRepo usersRepo = ctx.getBean(UsersRepo.class);
+        usersRepo.save(new Users("uLogin001", "Xxx Yyy Zzz"));
     }
 }
