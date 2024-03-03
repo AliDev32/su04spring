@@ -1,7 +1,7 @@
 package ali.su.cft2j02.datareader;
 
 import ali.su.cft2j02.Data;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.text.ParseException;
@@ -11,7 +11,7 @@ import java.text.SimpleDateFormat;
 public class MapTabDelimitedStringToData implements MapperSourceToData<String, Data> {
     private SimpleDateFormat sdf;
 
-    public MapTabDelimitedStringToData(@Qualifier("dateFormat") String dateFormat) {
+    public MapTabDelimitedStringToData(@Value("${data-files.date-format}") String dateFormat) {
         this.sdf = new SimpleDateFormat(dateFormat);
     }
 
