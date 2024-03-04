@@ -21,6 +21,22 @@ public class Data {
         this.appType = appType;
     }
 
+    public String getLoginName() {
+        return loginName;
+    }
+
+    public String getFio() {
+        return lastName + " " + firstName + " " + patronymic;
+    }
+
+    public Date getLoginDate() {
+        return loginDate;
+    }
+
+    public String getAppType() {
+        return appType;
+    }
+
     @Override
     public String toString() {
         return "Data{" +

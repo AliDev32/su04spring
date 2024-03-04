@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -14,25 +15,29 @@ public class DataFileReader implements DataReader<List<Data>> {
     private final String dataLocation;
     private final MapperSourceToData<String, Data> mapper;
 
-    public DataFileReader(@Value("${data-files.location}") String dataLocation, MapperSourceToData<String, Data> mapper) {
+    public DataFileReader(
+            @Value("${data-files.location}") String dataLocation, MapperSourceToData<String, Data> mapper
+                         ) {
         this.dataLocation = dataLocation;
         this.mapper = mapper;
     }
 
     @Override
     public List<Data> get() {
-        Scanner scanner = null;
         var res = new ArrayList<Data>();
-        try {
-            var file = new File(dataLocation);
-            for (var f : file.listFiles()) {
-                scanner = new Scanner(f);
-                while (scanner.hasNext()) {
+        var folder = new File(dataLocation);
+        var files = folder.listFiles();
+
+        if (files == null) {return res;}
+
+        for (var f : files) {
+            try (Scanner scanner = new Scanner(f)) {
+                while (scanner.hasNextLine()) {
                     res.add(mapper.apply(scanner.nextLine()));
                 }
+            } catch (FileNotFoundException e) {
+                throw new RuntimeException(e);
             }
-        } catch (Exception e) {
-            throw new IllegalArgumentException(e);
         }
         return res;
     }
