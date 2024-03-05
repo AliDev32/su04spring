@@ -9,9 +9,11 @@ public class Data {
     private String patronymic;
     private Date loginDate;
     private String appType;
+    private String fileName;    //Для упрощения заведу здесь, как просто поле
 
     public Data(
-            String loginName, String lastName, String firstName, String patronymic, Date loginDate, String appType
+            String loginName, String lastName, String firstName, String patronymic, Date loginDate, String appType,
+            String fileName
                ) {
         this.loginName = loginName;
         this.lastName = lastName;
@@ -19,6 +21,7 @@ public class Data {
         this.patronymic = patronymic;
         this.loginDate = loginDate;
         this.appType = appType;
+        this.fileName = fileName;
     }
 
     public String getLoginName() {
@@ -29,12 +32,44 @@ public class Data {
         return lastName + " " + firstName + " " + patronymic;
     }
 
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getPatronymic() {
+        return patronymic;
+    }
+
     public Date getLoginDate() {
         return loginDate;
     }
 
     public String getAppType() {
         return appType;
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setPatronymic(String patronymic) {
+        this.patronymic = patronymic;
+    }
+
+    public void setAppType(String appType) {
+        this.appType = appType;
     }
 
     @Override

@@ -14,8 +14,9 @@ public interface MapperSourceToData<T, R> {
     /**
      * Applies this function to the given argument.
      *
-     * @param t the function argument
+     * @param t1 the first function argument
+     * @param t2 the second function argument
      * @return the function result
      */
-    R apply(T t);
+    R apply(T t1, T t2);
 }

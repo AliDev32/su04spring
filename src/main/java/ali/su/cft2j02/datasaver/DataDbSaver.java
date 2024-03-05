@@ -18,10 +18,12 @@ public class DataDbSaver implements DataSaver<List<Data>> {
     @Override
     public void accept(List<Data> data) {
         data.forEach(d -> {
+            //TODO: сделать проверку, ели не изменился, то usersRepo.findByUsername не делаем
             User user = usersRepo.findByUsername(d.getLoginName());
             if (user == null) {
                 user = usersRepo.save(new User(d.getLoginName(), d.getFio()));
             }
+            //TODO: bulk insert
             loginsRepo.save(new Login(d.getLoginDate(), user.getId(), d.getAppType()));
         });
     }
