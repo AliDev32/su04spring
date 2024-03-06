@@ -10,7 +10,7 @@ import java.util.Date;
 
 @Component
 public class MapTabDelimitedStringToData implements MapperSourceToData<String, Data> {
-    private SimpleDateFormat sdf;
+    private final SimpleDateFormat sdf;
 
     public MapTabDelimitedStringToData(@Value("${data-files.date-format}") String dateFormat) {
         this.sdf = new SimpleDateFormat(dateFormat);

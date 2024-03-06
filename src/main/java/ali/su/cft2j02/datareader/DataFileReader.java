@@ -33,7 +33,7 @@ public class DataFileReader implements DataReader<List<Data>> {
         for (var f : files) {
             try (Scanner scanner = new Scanner(f)) {
                 while (scanner.hasNextLine()) {
-                    //TODO: сделать выбор маппера по типу файла из мапы мапперов
+                    //TODO: сделать получение маппера из мапы мапперов по типу файла
                     res.add(mapper.apply(scanner.nextLine(), f.getName()));
                 }
             } catch (FileNotFoundException e) {

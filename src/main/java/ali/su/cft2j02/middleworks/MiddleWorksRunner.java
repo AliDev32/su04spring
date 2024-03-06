@@ -8,7 +8,7 @@ import java.util.List;
 @Component
 public class MiddleWorksRunner implements MiddleWorker<List<Data>> {
 
-    private List<MiddleWorker<List<Data>>> workers;
+    private final List<MiddleWorker<List<Data>>> workers;
 
     public MiddleWorksRunner(List<MiddleWorker<List<Data>>> workers) {
         this.workers = workers;
