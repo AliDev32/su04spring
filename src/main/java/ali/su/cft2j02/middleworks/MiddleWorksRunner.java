@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public class MiddleWorksRunner {
+public class MiddleWorksRunner implements MiddleWorker<List<Data>> {
 
     private List<MiddleWorker<List<Data>>> workers;
 
@@ -14,13 +14,15 @@ public class MiddleWorksRunner {
         this.workers = workers;
     }
 
-    public List<Data> run(List<Data> dataList) {
+    @Override
+    public List<Data> doWork(List<Data> dataList) {
         for (var w : workers) {
             dataList = w.doWork(dataList);
         }
         return dataList;
     }
 
+    //TODO: убрать - это для тестов
     public List<MiddleWorker<List<Data>>> getWorkers() {
         return workers;
     }

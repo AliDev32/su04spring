@@ -21,7 +21,7 @@ public class Starter {
         var workRunner = ctx.getBean(MiddleWorksRunner.class);
         workRunner.getWorkers().forEach(System.out::println);
 
-        data = workRunner.run(data);
+        data = workRunner.doWork(data);
         System.out.println("===============================");
 
         var saver = ctx.getBean(DataDbSaver.class);
