@@ -1,6 +1,7 @@
 package ali.su.cft2j02;
 
 import java.util.Date;
+import java.util.Objects;
 
 public class Data {
     private String loginName;
@@ -22,6 +23,9 @@ public class Data {
         this.loginDate = loginDate;
         this.appType = appType;
         this.fileName = fileName;
+    }
+
+    public Data() {
     }
 
     public String getLoginName() {
@@ -82,5 +86,33 @@ public class Data {
                 ", loginDate=" + loginDate +
                 ", appType='" + appType + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Data data = (Data) o;
+
+        if (!loginName.equals(data.loginName)) return false;
+        if (!lastName.equals(data.lastName)) return false;
+        if (!firstName.equals(data.firstName)) return false;
+        if (!patronymic.equals(data.patronymic)) return false;
+        if (!Objects.equals(loginDate, data.loginDate)) return false;
+        if (!appType.equals(data.appType)) return false;
+        return fileName.equals(data.fileName);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = loginName.hashCode();
+        result = 31 * result + lastName.hashCode();
+        result = 31 * result + firstName.hashCode();
+        result = 31 * result + patronymic.hashCode();
+        result = 31 * result + (loginDate != null ? loginDate.hashCode() : 0);
+        result = 31 * result + appType.hashCode();
+        result = 31 * result + fileName.hashCode();
+        return result;
     }
 }

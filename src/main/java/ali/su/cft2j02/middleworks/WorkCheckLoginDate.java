@@ -47,8 +47,8 @@ public class WorkCheckLoginDate implements MiddleWorker<List<Data>> {
     }
 
     private void saveLog(List<Data> dataList) {
-        var formatter = new SimpleDateFormat("yyyy_MM_dd");
-        var fileName = logFilesDestination.concat(formatter.format(new Date())).concat(".log");
+        var formatter = new SimpleDateFormat("yyyy_MM_dd'.log'");
+        var fileName = logFilesDestination.concat(formatter.format(new Date()));
 
         try {
             var path = Path.of(logFilesDestination);

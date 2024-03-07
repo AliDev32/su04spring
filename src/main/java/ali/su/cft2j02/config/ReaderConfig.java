@@ -9,11 +9,11 @@ public class ReaderConfig {
     private String location;
     private String dateFormat;
 
-    void setLocation(String location) {
+    public void setLocation(String location) {
         this.location = location;
     }
 
-    void setDateFormat(String dateFormat) {
+    public void setDateFormat(String dateFormat) {
         this.dateFormat = dateFormat;
     }
 

@@ -36,7 +36,10 @@ public class DataFileReader implements DataReader<List<Data>> {
             try (Scanner scanner = new Scanner(f)) {
                 while (scanner.hasNextLine()) {
                     //TODO: сделать получение маппера из мапы мапперов по типу файла
-                    res.add(mapper.apply(scanner.nextLine(), f.getName()));
+                    var data = mapper.apply(scanner.nextLine(), f.getName());
+                    if (data != null) {
+                        res.add(data);
+                    }
                 }
             } catch (FileNotFoundException e) {
                 throw new RuntimeException(e);
