@@ -1,7 +1,7 @@
 package ali.su.cft2j02.datareader;
 
 import ali.su.cft2j02.Data;
-import org.springframework.beans.factory.annotation.Value;
+import ali.su.cft2j02.config.ReaderConfig;
 import org.springframework.stereotype.Component;
 
 import java.io.File;
@@ -16,9 +16,9 @@ public class DataFileReader implements DataReader<List<Data>> {
     private final MapperSourceToData<String, Data> mapper;
 
     public DataFileReader(
-            @Value("${data-files.location}") String dataLocation, MapperSourceToData<String, Data> mapper
+            ReaderConfig readerConfig, MapperSourceToData<String, Data> mapper
                          ) {
-        this.dataLocation = dataLocation;
+        this.dataLocation = readerConfig.getLocation();
         this.mapper = mapper;
     }
 
@@ -28,7 +28,9 @@ public class DataFileReader implements DataReader<List<Data>> {
         var folder = new File(dataLocation);
         var files = folder.listFiles();
 
-        if (files == null) {return res;}
+        if (files == null) {
+            return res;
+        }
 
         for (var f : files) {
             try (Scanner scanner = new Scanner(f)) {
