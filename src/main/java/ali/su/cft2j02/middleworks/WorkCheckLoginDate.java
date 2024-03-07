@@ -1,6 +1,8 @@
 package ali.su.cft2j02.middleworks;
 
 import ali.su.cft2j02.Data;
+import ali.su.cft2j02.annotation.LogTransformation;
+import ali.su.cft2j02.config.LogConfig;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
@@ -16,15 +18,16 @@ import java.util.List;
 
 @Component
 @Order(3)
-public class CheckLoginDate implements MiddleWorker<List<Data>> {
+public class WorkCheckLoginDate implements MiddleWorker<List<Data>> {
 
     private final String logFilesDestination;
 
-    public CheckLoginDate(@Value("${log-files.location}") String logFilesDestination) {
-        this.logFilesDestination = logFilesDestination;
+    public WorkCheckLoginDate(LogConfig logConfig) {
+        this.logFilesDestination = logConfig.getLocation();
     }
 
     @Override
+    @LogTransformation(logFileName = "WorkCheckLoginDate.log")
     public List<Data> doWork(List<Data> dataList) {
         var goodList = new ArrayList<Data>();
         var badList = new ArrayList<Data>();

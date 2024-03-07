@@ -8,7 +8,7 @@ import java.util.List;
 
 @Component
 @Order(2)
-public class CheckApp implements MiddleWorker<List<Data>> {
+public class WorkCheckApp implements MiddleWorker<List<Data>> {
     @Override
     public List<Data> doWork(List<Data> dataList) {
         dataList.forEach(d -> {

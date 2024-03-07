@@ -18,7 +18,7 @@ public class MapTabDelimitedStringToData implements MapperSourceToData<String, D
 
     @Override
     public Data apply(String s, String fileName) {
-        var cols = s.split("\t");
+        final var cols = s.split("\t");
         Date loginDate = null;
         try {
             loginDate = sdf.parse(cols[4]);
