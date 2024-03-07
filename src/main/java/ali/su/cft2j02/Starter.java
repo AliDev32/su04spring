@@ -1,5 +1,6 @@
 package ali.su.cft2j02;
 
+import ali.su.cft2j02.config.ReaderConfig;
 import ali.su.cft2j02.datareader.DataFileReader;
 import ali.su.cft2j02.datasaver.*;
 import ali.su.cft2j02.middleworks.MiddleWorksRunner;
@@ -13,17 +14,14 @@ public class Starter {
     public static void main(String[] args) {
         var ctx = SpringApplication.run(Starter.class);
 
+        //чтение данных
         var data = ctx.getBean(DataFileReader.class).get();
-        data.forEach(System.out::println);
 
-
-        System.out.println("===============================");
+        //промежуточные обработки
         var workRunner = ctx.getBean(MiddleWorksRunner.class);
-        workRunner.getWorkers().forEach(System.out::println);
-
         data = workRunner.doWork(data);
-        System.out.println("===============================");
 
+        //сохранение данных
         var saver = ctx.getBean(DataDbSaver.class);
         saver.accept(data);
     }
