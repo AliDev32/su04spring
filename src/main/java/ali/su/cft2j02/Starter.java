@@ -1,6 +1,5 @@
 package ali.su.cft2j02;
 
-import ali.su.cft2j02.config.ReaderConfig;
 import ali.su.cft2j02.datareader.DataFileReader;
 import ali.su.cft2j02.datareader.DataReader;
 import ali.su.cft2j02.datasaver.*;
@@ -8,7 +7,6 @@ import ali.su.cft2j02.middleworks.MiddleWorksRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.util.Arrays;
 import java.util.List;
 
 @SpringBootApplication(scanBasePackages = "ali.su.cft2j02")

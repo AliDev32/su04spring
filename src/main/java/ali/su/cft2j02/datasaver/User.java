@@ -10,9 +10,6 @@ public class User {
     private long id;
     private String username;
     private String fio;
-//    @OneToMany
-//    @JoinColumn(name = "user_id")
-//    private List<Login> logins;
 
     public User(String username, String fio) {
         this.username = username;

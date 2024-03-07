@@ -3,7 +3,6 @@ package ali.su.cft2j02.middleworks;
 import ali.su.cft2j02.Data;
 import ali.su.cft2j02.annotation.LogTransformation;
 import ali.su.cft2j02.config.LogConfig;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 

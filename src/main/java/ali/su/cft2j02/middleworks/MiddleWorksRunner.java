@@ -21,9 +21,4 @@ public class MiddleWorksRunner implements MiddleWorker<List<Data>> {
         }
         return dataList;
     }
-
-    //TODO: убрать - это для тестов
-    public List<MiddleWorker<List<Data>>> getWorkers() {
-        return workers;
-    }
 }
